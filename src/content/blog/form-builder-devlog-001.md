@@ -127,7 +127,7 @@ Here is the basic flow:
 sequenceDiagram
     autonumber
     participant U as User
-    box rgba(55,55,55,0.2) Backend
+    box Backend
     participant L as LLM Service
     participant D as Database
     end

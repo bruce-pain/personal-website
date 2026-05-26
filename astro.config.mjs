@@ -10,7 +10,6 @@ export default defineConfig({
     },
     integrations: [
         mermaid({
-            theme: "neutral",
             autoTheme: true,
         }),
     ],

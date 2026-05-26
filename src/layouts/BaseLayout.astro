@@ -19,6 +19,7 @@ const { title, description = "Franklin Ikeh - Backend Engineer" } = Astro.props;
                     ? "dark"
                     : "light");
             document.documentElement.classList.toggle("dark", theme === "dark");
+            document.documentElement.setAttribute("data-theme", theme);
         </script>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,7 +32,7 @@ const { title, description = "Franklin Ikeh - Backend Engineer" } = Astro.props;
             <header class="mb-16">
                 <nav class="flex items-center justify-between">
                     <a href="/" class="font-medium">Franklin</a>
-                    <div class="flex items-center gap-4 text-sm">
+                    <div class="flex items-center gap-4 text-sm md:gap-6">
                         <a href="/projects">Projects</a>
                         <a href="/writing">Writing</a>
                         <ThemeToggle />
