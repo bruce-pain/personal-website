@@ -1,7 +1,7 @@
 ---
-title: "Building an AI form builder Devlog: #01 - Pilot"
+title: "Building an AI form builder #01 - Pilot"
 date: 2025-05-26
-tags: ["python", "backend"]
+tags: ["python", "backend", "devlog"]
 draft: false
 ---
 
