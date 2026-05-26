@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Writing - Franklin Ikeh">
+    <div class="prose space-y-10">
+        <h1>Things I've written.</h1>
+
+        <div class="space-y-8">
+            {
+                posts.map((post) => (
+                    <div class="space-y-1">
+                        <div class="flex items-start justify-between gap-4">
+                            <a
+                                href={`/writing/${post.id}`}
+                                class="hover:underline"
+                            >
+                                {post.data.title}
+                            </a>
+                            <span class="shrink-0 text-sm text-gray-400">
+                                {post.data.date.toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "short",
+                                })}
+                            </span>
+                        </div>
+                        {post.data.tags && (
+                            <div class="flex gap-2">
+                                {post.data.tags.map((tag) => (
+                                    <span class="text-xs text-gray-400">
+                                        #{tag}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</BaseLayout>
