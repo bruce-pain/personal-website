@@ -1,9 +1,29 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout title="HI! I'm Franklin">
-    <div class="prose">
-        <h1>HI! I'm Franklin</h1>
+<BaseLayout title="Franklin Ikeh">
+    <div class="prose space-y-6 leading-relaxed">
+        <h1>Hi, I'm Franklin</h1>
+        <p>A backend engineer based in Lagos, Nigeria.</p>
+
+        <p>
+            I spend most of my time working with Python, FastAPI, and
+            PostgreSQL. I care about building systems that are simple,
+            well-structured, and easy to reason about.
+        </p>
+
+        <p>
+            I'm in my third year studying Computer Science at the University of
+            Ilorin. Outside of work I read a lot, mostly technical writing, and
+            philosophical fiction.
+        </p>
+
+        <p>
+            You can see what I've <a href="/projects">built</a>, read what I've <a
+                href="/writing">written</a
+            >, or
+            <a href="mailto:ikehfranklin06@gmail.com">get in touch</a>.
+        </p>
     </div>
-</Layout>
+</BaseLayout>

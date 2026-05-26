@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const { title, description = "Franklin Ikeh - Backend Engineer" } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content={description} />
+        <title>{title}</title>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    </head>
+    <body>
+        <div class="mx-auto max-w-2xl px-6 py-12">
+            <header class="mb-16">
+                <nav class="flex items-center justify-between">
+                    <a href="/" class="font-medium">Franklin</a>
+                    <div class="flex gap-4 text-sm">
+                        <a href="/projects">Projects</a>
+                        <a href="/writing">Writing</a>
+                    </div>
+                </nav>
+            </header>
+
+            <main>
+                <slot />
+            </main>
+
+            <footer
+                class="mt-24 flex justify-between border-t pt-6 text-sm text-gray-500"
+            >
+                <span>Franklin Ikeh</span>
+                <div class="flex gap-4">
+                    <a href="https://github.com/bruce-pain" target="_blank"
+                        >GitHub</a
+                    >
+                    <a
+                        href="https://linkedin.com/in/franklin-ikeh"
+                        target="_blank">LinkedIn</a
+                    >
+                    <a href="https://x.com/builtbyfranklin" target="_blank">X</a
+                    >
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
