@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 interface Props {
     title: string;
@@ -11,20 +12,29 @@ const { title, description = "Franklin Ikeh - Backend Engineer" } = Astro.props;
 
 <html lang="en">
     <head>
+        <script is:inline>
+            const theme =
+                localStorage.getItem("theme") ??
+                (window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light");
+            document.documentElement.classList.toggle("dark", theme === "dark");
+        </script>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={description} />
         <title>{title}</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     </head>
-    <body>
+    <body class="bg-white text-gray-900 dark:bg-zinc-900 dark:text-gray-100">
         <div class="mx-auto max-w-2xl px-6 py-12">
             <header class="mb-16">
                 <nav class="flex items-center justify-between">
                     <a href="/" class="font-medium">Franklin</a>
-                    <div class="flex gap-4 text-sm">
+                    <div class="flex items-center gap-4 text-sm">
                         <a href="/projects">Projects</a>
                         <a href="/writing">Writing</a>
+                        <ThemeToggle />
                     </div>
                 </nav>
             </header>
@@ -34,7 +44,7 @@ const { title, description = "Franklin Ikeh - Backend Engineer" } = Astro.props;
             </main>
 
             <footer
-                class="mt-24 flex justify-between border-t pt-6 text-sm text-gray-500"
+                class="mt-24 flex justify-between border-t border-zinc-200 pt-6 text-sm text-gray-500 dark:border-zinc-700 dark:text-gray-400"
             >
                 <span>Franklin Ikeh</span>
                 <div class="flex gap-4">

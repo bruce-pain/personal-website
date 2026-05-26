@@ -1,5 +1,6 @@
 @import "@fontsource-variable/jetbrains-mono";
 @import "tailwindcss";
+@custom-variant dark (&:is(.dark, .dark *));
 @plugin "@tailwindcss/typography";
 
 body {

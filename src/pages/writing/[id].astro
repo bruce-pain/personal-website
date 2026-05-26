@@ -17,9 +17,9 @@ const { Content } = await render(post);
 
 <BaseLayout title={post.data.title} description={post.data.description}>
     <article class="space-y-8">
-        <div class="prose space-y-3">
+        <div class="prose space-y-3 dark:prose-invert">
             <h1 class="font-medium">{post.data.title}</h1>
-            <div class="flex items-center gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-4 text-sm text-gray-400 dark:text-gray-500">
                 <span>
                     {
                         post.data.date.toLocaleDateString("en-US", {
@@ -41,7 +41,7 @@ const { Content } = await render(post);
             </div>
         </div>
 
-        <div class="prose">
+        <div class="prose dark:prose-invert">
             <Content />
         </div>
     </article>
