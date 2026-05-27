@@ -1,11 +1,21 @@
 ---
 title: "Building an AI form builder #01 - Pilot"
-date: 2026-05-26
-tags: ["python", "backend", "devlog"]
+date: 2026-05-27
+tags: ["backend", "llm", "devlog"]
 draft: false
 ---
 
 This is my first time writing a devlog. I'm writing this for you (the reader, and also my future self) to read through my raw thought process as I embark on building this project, and honestly, to finally kickstart my habit of writing and documenting my work.
+
+<!--toc:start-->
+
+- [The Idea](#the-idea)
+- [The Plan](#the-plan)
+    - [Data Model](#data-model)
+    - [LLM Integration](#llm-integration)
+- [The Project Structure](#the-project-structure)
+- [Tech Stack](#tech-stack)
+    <!--toc:end-->
 
 ## The Idea
 
@@ -18,22 +28,21 @@ So, yes, you can say that it's just a portfolio project. Sure, it would be cool 
 
 I would start small, at an atomic level, a simple basic version that I will continue to add things to later. My reason for this is that it would allow me focus on the core parts of the project, once I can confirm that the core parts are functional, it would be easier to build on top of it.
 
-## El plan
+## The Plan
 
 The most exciting part of the project for me is the LLM integration. Why? well, it's something I haven't really worked on before, at least not to a reasonable depth. My previous experience with LLM integration was Kwiki AI, an app that uses an LLM to generate study flashcards, It was pretty much plug and play, wire in the API, write a system prompt, and do some output validation, that was it.
 I believe this project would require more than that, maybe not a whole lot, but it will definitely be a step forward.
 
 Alright, let's get into it, I already know what a form is and how forms work, but:
 
-- "How do I get an LLM to create a form?"
-- "How would a user create a form manually?"
-- "What does a form even look like in this application?"
+- What does a form even look like in this application?
+- How do I get an LLM to create a form?
 
-That third question should have been the first one, I think it's the most important question, because it asks "What exactly are we working with here?". So, let's define what exactly makes up a form in this project.
+I'll start from the first one, I think it's the most important question, because it asks "What exactly are we working with here?". So, let's define what exactly makes up a form in this project.
 
 ### Data Model
 
-Initially, I was thinking of some sort of schema, that the LLM can understand, while the frontend converts that schema into components, but how about the reverse? How does the frontend convert a visual form into this schema? Perhaps we could have each form element (question) as components, and as the user creates questions on the frontend UI, these components could be arranged in a stack, and by some typescript wizardry, each component is converted to it's schema equivalent, making it so that we can construct the same schema and send it to the backend.
+Initially, I was thinking of some sort of schema, that the LLM can understand, while the frontend converts that schema into components, but how about the reverse? How does the frontend convert a visual form into this schema? Perhaps we could have each form element (question) as components, and as the user creates questions on the frontend UI, these components could be arranged in a stack, and by some typescript wizardry, each component is converted to its schema equivalent, making it so that we can construct the same schema and send it to the backend.
 
 So, at this point, we have established that a form will have a schema, this schema just holds the questions as JSON, because I don't think there is any need to create a table for questions. The same will apply for responses, a response will have a schema to hold the answers.
 
@@ -87,9 +96,11 @@ For questions and answers schemas, here is what each one looks like for a single
 }
 ```
 
-For the initial stage, I have decided on keeping it lean, just two ways to answer, text, or selecting from a list of options. So a sinlge schema to handle both cases should be enough for now.
+For the initial stage, I have decided on keeping it lean, just two ways to answer, text, or selecting from a list of options. So a single schema to handle both cases should be enough for now.
 
 When rendering a question, the answer type determines what kind of input field to display under the question text, for text question it's very straightforward, a simple text field, the extra schema fields can be ignored if the answer_type is text. If the answer_type is select, a checkbox list is displayed with the options in answer_select_options, in this case all fields are used.
+
+There is also a required field, for unskippable questions.
 
 **Answer schema**
 
@@ -109,11 +120,11 @@ When rendering a question, the answer type determines what kind of input field t
 }
 ```
 
-It looks weird, but until I can find a better solution, what works now is a having a unified schema with optional fields.
+What works now is having a unified schema with optional fields, to handle the different kinds of questions and responses.
 
 Alright, this should answer the question
 
-> "What does a form even look like in this application?
+> What does a form even look like in this application?
 
 Now that we have a data model and know exactly what we're working with, let's talk about how the LLM would fit into the system first.
 
@@ -122,6 +133,8 @@ Now that we have a data model and know exactly what we're working with, let's ta
 I'm just trying to get a high level understanding of how this would work, so I'm going to abstract a lot of details, for example the LLM I would be using, the prompt structure, etc.
 
 Here is the basic flow:
+
+Pretty simple, a conversational session where the user can iterate with the LLM and even make manual edits which the LLM adds to the context.
 
 ```mermaid
 sequenceDiagram
@@ -143,8 +156,6 @@ sequenceDiagram
     Note over U: Satisfied with form
     U ->> D: Create final form
 ```
-
-Pretty simple, a conversational session where the user can iterate with the LLM and even make manual edits which the LLM adds to the context.
 
 I also had to figure out how to preserve the context of the session, how to make the LLM remember what it has generated, the user's prompts and also keep track of user edits.
 
@@ -179,6 +190,27 @@ sequenceDiagram
 
 The backend will handle the conversation memory for each session, this data doesn't need to be persisted in the database, so a temporary memory would fit, something like Redis. One more thing, sessions in memory are volatile, so what happens when the server loses memory mid session? Since each request from the client is carrying the current state, the conversation would continue from the last known client state.
 
-That pretty much covers my high level overview of the LLM integration, this is merely just a rough sketch, things might change once I dive into the actual integration. This LLM section also answers the first question I asked myself earlier:
+For now, this is just a rough mental model of how I think the LLM integration will work, just enough to get started. Surely, I'll spot areas that need improvement along the way. The last thing I need is analysis paralysis trying to make the perfect plan.
 
-> "How do I get an LLM to create a form?"
+At this point we have the answers to these two questions:
+
+> How do I get an LLM to create a form?
+> What does a form even look like in this application?
+
+This concludes the plan at this stage, I'm very enthusiastic about working with the LLM and integrating it into the application, that's why I decided to explain it in detail.
+
+> The most exciting part of the project for me is the LLM integration.
+
+Let's talk a little bit about the project structure now
+
+## The Project Structure
+
+I'll be splitting the project into two repositories, one for the backend and one for the frontend. I've worked this way before and it just keeps things cleaner.
+
+## Tech Stack
+
+FastAPI and PostgreSQL are my default choice for the backend.
+I'll use Groq as my LLM provider, It has a really generous free tier with access to open source models.
+For the actual LLM integration, Langchain comes to mind, it's a very popular choice for building agents. I'm looking to give it a try because it simplifies the process of building the kind of conversational LLM agent my project needs.
+I'll also take this opportunity to learn Redis for its in memory database, exactly what I need to handle conversation session management.
+The frontend is NextJS and Tailwind, straightforward choice.
