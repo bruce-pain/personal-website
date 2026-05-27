@@ -16,8 +16,8 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-    <article class="space-y-8">
-        <div class="prose dark:prose-invert space-y-3">
+    <article class="prose dark:prose-invert space-y-8">
+        <div class="space-y-3">
             <h1 class="font-medium">{post.data.title}</h1>
             <div
                 class="flex flex-col items-start gap-2 text-sm text-gray-400 dark:text-gray-500"
@@ -45,7 +45,7 @@ const { Content } = await render(post);
             </div>
         </div>
 
-        <div class="prose dark:prose-invert">
+        <div class="">
             <Content />
         </div>
     </article>
