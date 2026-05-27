@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Analytics from "@vercel/analytics/astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 
 interface Props {
@@ -26,6 +27,7 @@ const { title, description = "Franklin Ikeh - Backend Engineer" } = Astro.props;
         <meta name="description" content={description} />
         <title>{title}</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <Analytics />
     </head>
     <body class="bg-white text-gray-900 dark:bg-zinc-900 dark:text-gray-100">
         <div class="mx-auto max-w-2xl px-6 py-12">
