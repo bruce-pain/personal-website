@@ -1,52 +1,41 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const projects = [
-    {
-        name: "Kwiki AI",
-        description:
-            "AI-powered flashcard platform built with FastAPI and Groq API. 40+ active users.",
-        stack: ["FastAPI", "PostgreSQL", "Groq API"],
-        github: "https://github.com/bruce-pain/kwiki-ai",
-        live: "https://kwiki-ai.com",
-    },
-    {
-        name: "Fundraising Platform",
-        description:
-            "Paystack-integrated fundraising platform with end-to-end CI/CD.",
-        stack: ["FastAPI", "PostgreSQL", "Paystack", "Docker"],
-        github: "https://github.com/bruce-pain/fundraising-platform",
-        live: null,
-    },
-];
+const projects = [];
 ---
 
 <BaseLayout title="Projects - Franklin Ikeh">
-    <div class="prose space-y-12 dark:prose-invert">
+    <div class="prose dark:prose-invert space-y-12">
         <h1>Things I've built.</h1>
 
         <div class="space-y-10">
             {
-                projects.map((project) => (
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="font-medium">[{project.name}]</span>
-                            <div class="flex gap-4 text-sm">
-                                {project.live && (
-                                    <a href={project.live} target="_blank">
-                                        Live
+                projects.length === 0 ? (
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Nothing here yet — check back later.
+                    </p>
+                ) : (
+                    projects.map((project) => (
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium">[{project.name}]</span>
+                                <div class="flex gap-4 text-sm">
+                                    {project.live && (
+                                        <a href={project.live} target="_blank">
+                                            Live
+                                        </a>
+                                    )}
+                                    <a href={project.github} target="_blank">
+                                        GitHub
                                     </a>
-                                )}
-                                <a href={project.github} target="_blank">
-                                    GitHub
-                                </a>
+                                </div>
                             </div>
+                            <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                                {project.description}
+                            </p>
                         </div>
-                        <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                            {project.description}
-                        </p>
-                    </div>
-                ))
+                    ))
+                )
             }
         </div>
     </div>
