@@ -8,7 +8,8 @@ interface Props {
     description?: string;
 }
 
-const { title, description = "Franklin Ikeh - Software Engineer" } = Astro.props;
+const { title, description = "Franklin Ikeh - Software Engineer" } =
+    Astro.props;
 ---
 
 <html lang="en">
@@ -33,12 +34,18 @@ const { title, description = "Franklin Ikeh - Software Engineer" } = Astro.props
         <div class="mx-auto max-w-2xl px-6 py-12">
             <header class="mb-16">
                 <nav class="flex items-center justify-between">
-                    <a href="/" class="font-medium">Franklin</a>
-                    <div class="flex items-center gap-4 text-sm md:gap-6">
-                        <a href="/projects">Projects</a>
-                        <a href="/writing">Writing</a>
-                        <ThemeToggle />
+                    <div
+                        class="flex flex-col items-start gap-2 md:flex-row md:items-center"
+                    >
+                        <a href="/" class="text-xl font-medium md:text-2xl"
+                            >FRANKLIN IKEH</a
+                        >
+                        <!-- <div class="text-sm"> -->
+                        <!--     <a href="/projects">Projects</a> -->
+                        <!--     <a href="/writing">Writing</a> -->
+                        <!-- </div> -->
                     </div>
+                    <ThemeToggle />
                 </nav>
             </header>
 
