@@ -42,15 +42,11 @@ I'll start from the first one, I think it's the most important question, because
 
 ### Data Model
 
-Initially, I was thinking of some sort of schema, that the LLM can understand, while the frontend converts that schema into components, but how about the reverse? How does the frontend convert a visual form into this schema? Perhaps we could have each form element (question) as components, and as the user creates questions on the frontend UI, these components could be arranged in a stack, and by some typescript wizardry, each component is converted to its schema equivalent, making it so that we can construct the same schema and send it to the backend.
-
-So, at this point, we have established that a form will have a schema, this schema just holds the questions as JSON, because I don't think there is any need to create a table for questions. The same will apply for responses, a response will have a schema to hold the answers.
-
-Here is a rough idea of what these two might look like
+Let's consider both the form and response objects. Here is a rough idea of what these two might look like:
 
 **Form table**:
 
-| Entity           | type     |
+| Field            | type     |
 | ---------------- | -------- |
 | form_id          | UUID     |
 | user_id          | UUID     |
@@ -63,16 +59,16 @@ Here is a rough idea of what these two might look like
 
 **Response table**
 
-| Entity      | type     |
+| Field       | type     |
 | ----------- | -------- |
 | response_id | UUID     |
 | form_id     | UUID     |
 | answers     | JSONb    |
 | created_at  | datetime |
 
-I'm storing the questions and answers schemas directly as JSON into the database, instead of creating tables. Each question and answer is self-contained to a form, and there will be no need to access them outside the context of the form itself.
+I'm storing the questions and answers directly as JSON into the database, instead of creating tables. Each question and answer is self-contained to a form, and there will be no need to access them outside the context of the form itself.
 
-For questions and answers schemas, here is what each one looks like for a single question or answer
+For questions and answers, here is what each one looks like for a single question or answer
 
 **Question schema**
 
@@ -97,10 +93,6 @@ For questions and answers schemas, here is what each one looks like for a single
 ```
 
 For the initial stage, I have decided on keeping it lean, just two ways to answer, text, or selecting from a list of options. So a single schema to handle both cases should be enough for now.
-
-When rendering a question, the answer type determines what kind of input field to display under the question text, for text question it's very straightforward, a simple text field, the extra schema fields can be ignored if the answer_type is text. If the answer_type is select, a checkbox list is displayed with the options in answer_select_options, in this case all fields are used.
-
-There is also a required field, for unskippable questions.
 
 **Answer schema**
 
@@ -195,11 +187,10 @@ For now, this is just a rough mental model of how I think the LLM integration wi
 At this point we have the answers to these two questions:
 
 > How do I get an LLM to create a form?
+
 > What does a form even look like in this application?
 
 This concludes the plan at this stage, I'm very enthusiastic about working with the LLM and integrating it into the application, that's why I decided to explain it in detail.
-
-> The most exciting part of the project for me is the LLM integration.
 
 Let's talk a little bit about the project structure now
 
