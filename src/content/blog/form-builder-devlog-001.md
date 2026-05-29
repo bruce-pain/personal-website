@@ -19,7 +19,7 @@ This is my first time writing a devlog. I'm writing this for you (the reader, an
 
 ## The Idea
 
-LLM Assisted form building, use an LLM to generate a starter template for your form in seconds, just give it a prompt describing the purpose of your form and it gives you a ready to use form which you can edit or improve with iterative prompting.
+LLM Assisted form building, use an LLM to generate a starter template for your form in seconds, just give it a prompt describing the purpose of your form, and it gives you a ready to use form which you can edit or improve with iterative prompting.
 
 I was inspired to build this by looking at a similar project [Instantforms](https://instantforms.co/), built by [Daniel Olabemiwo](https://www.danielolabemiwo.com/).
 
@@ -30,7 +30,7 @@ I would start small, at an atomic level, a simple basic version that I will cont
 
 ## The Plan
 
-The most exciting part of the project for me is the LLM integration. Why? well, it's something I haven't really worked on before, at least not to a reasonable depth. My previous experience with LLM integration was Kwiki AI, an app that uses an LLM to generate study flashcards, It was pretty much plug and play, wire in the API, write a system prompt, and do some output validation, that was it.
+The most exciting part of the project for me is the LLM integration. Why? Well, it's something I haven't really worked on before, at least not to a reasonable depth. My previous experience with LLM integration was Kwiki AI, an app that uses an LLM to generate study flashcards. It was pretty much plug and play, wire in the API, write a system prompt, and do some output validation, that was it.
 I believe this project would require more than that, maybe not a whole lot, but it will definitely be a step forward.
 
 Alright, let's get into it, I already know what a form is and how forms work, but:
@@ -38,7 +38,7 @@ Alright, let's get into it, I already know what a form is and how forms work, bu
 - What does a form even look like in this application?
 - How do I get an LLM to create a form?
 
-I'll start from the first one, I think it's the most important question, because it asks "What exactly are we working with here?". So, let's define what exactly makes up a form in this project.
+I'll start from the first one. I think it's the most important question, because it asks "What exactly are we working with here?". So, let's define what exactly makes up a form in this project.
 
 ### Data Model
 
@@ -114,7 +114,7 @@ For the initial stage, I have decided on keeping it lean, just two ways to answe
 
 What works now is having a unified schema with optional fields, to handle the different kinds of questions and responses.
 
-Alright, this should answer the question
+Alright, this should answer the question:
 
 > What does a form even look like in this application?
 
@@ -122,7 +122,7 @@ Now that we have a data model and know exactly what we're working with, let's ta
 
 ### LLM Integration
 
-I'm just trying to get a high level understanding of how this would work, so I'm going to abstract a lot of details, for example the LLM I would be using, the prompt structure, etc.
+I'm just trying to get a high level understanding of how this would work, so I'm going to abstract a lot of details, for example, the LLM I would be using, the prompt structure, etc.
 
 Here is the basic flow:
 
@@ -155,7 +155,7 @@ I also had to figure out how to preserve the context of the session, how to make
 sequenceDiagram
     participant C as Client
     participant S as Server
-    participant L as LLM
+    participant L as LLM Service
 
     C ->> C: Generate session id
     C ->> S: Initiate conversation<br/>prompt + session_id
@@ -190,9 +190,9 @@ At this point we have the answers to these two questions:
 
 > What does a form even look like in this application?
 
-This concludes the plan at this stage, I'm very enthusiastic about working with the LLM and integrating it into the application, that's why I decided to explain it in detail.
+This concludes the plan at this stage. I'm very enthusiastic about working with the LLM and integrating it into the application, that's why I decided to explain it in detail.
 
-Let's talk a little bit about the project structure now
+Let's talk a little bit about the project structure now.
 
 ## The Project Structure
 
@@ -201,7 +201,7 @@ I'll be splitting the project into two repositories, one for the backend and one
 ## Tech Stack
 
 FastAPI and PostgreSQL are my default choice for the backend.
-I'll use Groq as my LLM provider, It has a really generous free tier with access to open source models.
+I'll use Groq as my LLM provider. It has a really generous free tier with access to open source models.
 For the actual LLM integration, Langchain comes to mind, it's a very popular choice for building agents. I'm looking to give it a try because it simplifies the process of building the kind of conversational LLM agent my project needs.
 I'll also take this opportunity to learn Redis for its in memory database, exactly what I need to handle conversation session management.
 The frontend is NextJS and Tailwind, straightforward choice.
