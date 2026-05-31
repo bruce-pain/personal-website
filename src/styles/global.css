@@ -6,3 +6,12 @@
 body {
     font-family: "JetBrains Mono Variable", monospace;
 }
+
+header a {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}

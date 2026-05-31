@@ -8,7 +8,7 @@ const posts = (await getCollection("blog"))
 ---
 
 <BaseLayout title="Writing - Franklin Ikeh">
-    <div class="prose space-y-10 dark:prose-invert">
+    <div class="space-y-10">
         <h1>Things I've written.</h1>
 
         <div class="space-y-8">
@@ -16,10 +16,7 @@ const posts = (await getCollection("blog"))
                 posts.map((post) => (
                     <div class="space-y-1">
                         <div class="flex items-start justify-between gap-4">
-                            <a
-                                href={`/writing/${post.id}`}
-                                class="hover:underline"
-                            >
+                            <a href={`/writing/${post.id}`}>
                                 {post.data.title}
                             </a>
                             <span class="shrink-0 text-sm text-gray-400 dark:text-gray-500">
