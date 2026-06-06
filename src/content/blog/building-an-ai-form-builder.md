@@ -1,10 +1,10 @@
 ---
-title: "Building an AI form builder #01 - Pilot"
+title: "Building an AI form builder"
 date: 2026-05-27
 draft: false
 ---
 
-This is my first time writing a devlog. I'm writing this for you (the reader, and also my future self) to read through my raw thought process as I embark on building this project, and honestly, to finally kickstart my habit of writing and documenting my work.
+I'm writing this for you (the reader, and also my future self) to read through my raw thought process as I embark on building this project, and honestly, to finally kickstart my habit of writing and documenting my work.
 
 <!--toc:start-->
 
@@ -14,7 +14,7 @@ This is my first time writing a devlog. I'm writing this for you (the reader, an
     - [LLM Integration](#llm-integration)
 - [The Project Structure](#the-project-structure)
 - [Tech Stack](#tech-stack)
-    <!--toc:end-->
+  <!--toc:end-->
 
 ## The Idea
 
