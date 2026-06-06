@@ -5,6 +5,7 @@
 
 body {
     font-family: "JetBrains Mono Variable", monospace;
+    font-variant-ligatures: none;
 }
 
 header a {

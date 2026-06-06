@@ -15,6 +15,7 @@ const { Content } = await render(project);
 ---
 
 <BaseLayout title={`${project.data.name} - Franklin Ikeh`}>
+    <a href="/projects" class="block mb-8 text-sm text-gray-400 dark:text-gray-500">&lt;- Back</a>
     <article class="space-y-8">
         <div class="space-y-3">
             <h1 class="text-2xl font-medium tracking-tight md:text-3xl">
@@ -49,4 +50,6 @@ const { Content } = await render(project);
             <Content />
         </div>
     </article>
+
+    <a href="#" class="block mt-8 text-sm text-gray-400 dark:text-gray-500">^ Top</a>
 </BaseLayout>
