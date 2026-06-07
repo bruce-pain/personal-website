@@ -13,4 +13,9 @@ export default defineConfig({
             autoTheme: true,
         }),
     ],
+    markdown: {
+        shikiConfig: {
+            theme: "ayu-dark",
+        },
+    },
 });
