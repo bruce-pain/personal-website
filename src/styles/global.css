@@ -16,3 +16,11 @@ a {
     text-decoration: underline;
     text-underline-offset: 4px;
 }
+
+.prose code::before {
+    content: "" !important;
+}
+
+.prose code::after {
+    content: "" !important;
+}
