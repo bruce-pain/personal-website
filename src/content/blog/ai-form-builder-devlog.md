@@ -37,7 +37,7 @@ Retrieval: SQLAlchemy gets the JSONB, converts it to a Pydantic object and retur
 
 some useful resources that helped me:
 
-- [Official SQLAlchemy docs: custom_types](https://docs.sqlalchemy.org/en/20/core/custom_types.html)
+- [Official SQLAlchemy docs: Custom Types](https://docs.sqlalchemy.org/en/20/core/custom_types.html)
 - [sqlalchemy_with_pydantic_v2.py (Github gist)](https://gist.github.com/pdmtt/a6dc62f051c5597a8cdeeb8271c1e079)
 
 I faced some issues with migration (Alembic autogeneration) after adding the TypeDecorator to the model. The generated migration file tried creating the questions column like this:
@@ -75,6 +75,11 @@ sa.Column('questions', JSONB(), nullable=True),
 ```
 
 problem solved
+
+useful resources:
+
+- [Autogenerate renders TypeDecorator... (Github Issue on Alembic's Github repo)](https://github.com/sqlalchemy/alembic/issues/1386)
+- [Alembic documentation: Autogenerate](https://alembic.sqlalchemy.org/en/latest/autogenerate.html#auto-generating-migrations)
 
 ## 02 - forms feature (continued)
 
