@@ -1,5 +1,5 @@
 ---
-title: "AI Form Builder Devlog"
+title: "[DEVLOG] AI form builder"
 date: 2026-06-07
 last_updated: 2026-06-07
 draft: false
@@ -7,12 +7,12 @@ draft: false
 
 <!--toc:start-->
 
-- [01 - starting the forms feature](#01-starting-the-forms-feature)
-- [02 - forms feature (continued)](#02-forms-feature-continued)
-- [03 - response feature](#03-response-feature)
+- [In the beginning there was a form](#in-the-beginning-there-was-a-form)
+- [Forms feature (continued)](#forms-feature-continued)
+- [Response feature](#response-feature)
   <!--toc:end-->
 
-## #01 - starting the forms feature
+## In the beginning there was a form
 
 I started the project by creating a github repo using my [FastAPI Boilerplate](https://github.com/bruce-pain/FastAPI-boilerplate) template repository, I use it as a starting point for most of my projects now, just so I don't have to set everything up from scratch.
 
@@ -81,7 +81,7 @@ useful resources:
 - [Autogenerate renders TypeDecorator... (Github Issue on Alembic's Github repo)](https://github.com/sqlalchemy/alembic/issues/1386)
 - [Alembic documentation: Autogenerate](https://alembic.sqlalchemy.org/en/latest/autogenerate.html#auto-generating-migrations)
 
-## 02 - forms feature (continued)
+## Forms feature (continued)
 
 After creating the model, I need to create a repository, service, schemas, and routes.
 
@@ -97,7 +97,7 @@ This is the easy part, defining all the CRUD endpoints and logic, so I used open
 
 at this point I have completed the form management feature.
 
-## 03 - response feature
+## Response feature
 
 Responses were super easy to work on, for the model, I had already done the hard work figuring out the `TypeDecorator` while working on the question column for the forms model, this time I just need to use the same custom type I created.
 
