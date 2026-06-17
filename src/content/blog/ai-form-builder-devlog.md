@@ -1,16 +1,16 @@
 ---
 title: "[DEVLOG] AI form builder"
 date: 2026-06-07
-last_updated: 2026-06-07
+last_updated: 2026-06-17
 draft: false
 ---
 
 <!--toc:start-->
-
 - [In the beginning there was a form](#in-the-beginning-there-was-a-form)
 - [Forms feature (continued)](#forms-feature-continued)
 - [Response feature](#response-feature)
-  <!--toc:end-->
+- [Frontend prototype](#frontend-prototype)
+<!--toc:end-->
 
 ## In the beginning there was a form
 
@@ -109,3 +109,21 @@ I also went over the Pydantic schemas for `FormQuestion` and `ResponseAnswer` to
 
 Usually, I would use the `Field()` class for adding some constraints to a single field, then I learned how to use the `@model_validator(mode='after')` to handle cross-field validation.
 Pretty useful when you want to a certain field's constraints to depend on what happens in another field.
+
+## Frontend prototype
+
+**16-06-2026**
+
+It's been a while since I updated this devlog, I was busy doing a side quest, building a simple agent.
+I'm also adding dates now, I think I might split these up into separate posts later.
+
+Before I get started with the LLM integration, I thought I should quickly cook up a working frontend to test the existing functionality.
+I know a bit of NextJS so I let opencode do most of the coding for me, so it was pretty quick
+
+Right now the frontend handles auth, form management and even responses.
+
+The frontend stack remains mostly the same, NextJS and Tailwind, I also added `next-auth`. Since, I'm not exactly a proper frontend developer and I don't exactly plan on diving deep into that anytime soon, I asked Claude to walk me through how it would start a new NextJS project, and that was how it introduced me to `next-auth`
+
+Well, the frontend is mostly vibe-coded, but I'm being pretty careful with it.
+
+Tomorrow, I'll work on adding response management too, so form creators can view responses
