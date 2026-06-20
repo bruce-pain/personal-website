@@ -1,5 +1,6 @@
 ---
-title: "AI Form Builder [DEVLOG] - Response feature"
+title: "AI Form Builder [DEVLOG] - Response feature and general input validation"
+description: "Built the response feature, and input validation using custom logic and Pydantic"
 date: 2026-06-09
 draft: false
 ---

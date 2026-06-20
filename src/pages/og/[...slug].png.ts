@@ -64,7 +64,7 @@ export async function getStaticPaths() {
         if (post.data.draft) continue;
         pages.push({
             slug: `writing/${post.id}`,
-            props: { title: post.data.title, label: "FRANKLIN IKEH / WRITING" },
+            props: { title: post.data.title, description: post.data.description, label: "FRANKLIN IKEH / WRITING" },
         });
     }
 

@@ -1,5 +1,6 @@
 ---
-title: "AI Form Builder [DEVLOG] - Frontend prototype"
+title: "AI Form Builder [DEVLOG] - Building a prototype frontend"
+description: "I need a quick frontend prototype to test the current features"
 date: 2026-06-16
 draft: false
 ---

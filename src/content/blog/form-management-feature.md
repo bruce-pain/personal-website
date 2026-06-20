@@ -1,5 +1,5 @@
 ---
-title: "AI Form Builder [DEVLOG] - Forms feature (continued)"
+title: "AI Form Builder [DEVLOG] - Form management feature"
 date: 2026-06-08
 draft: false
 ---

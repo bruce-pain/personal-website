@@ -35,6 +35,13 @@ const posts = (await getCollection("blog"))
                                     )}
                                 </span>
                             </div>
+                            {
+                                post.data.description && (
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                                        {post.data.description}
+                                    </p>
+                                )
+                            }
                         </div>
                     ))
                 )

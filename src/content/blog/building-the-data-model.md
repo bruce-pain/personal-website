@@ -1,5 +1,6 @@
 ---
-title: "AI Form Builder [DEVLOG] - In the beginning there was a form"
+title: "AI Form Builder [DEVLOG] - Building the Data Model"
+description: "Data modelling with SQLAlchemy, custom_types with TypeDecorator and Pydantic."
 date: 2026-06-07
 draft: false
 ---

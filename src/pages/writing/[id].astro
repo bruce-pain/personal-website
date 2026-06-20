@@ -15,7 +15,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={post.data.title}>
+<BaseLayout title={post.data.title} description={post.data.description}>
     <a href="/writing" class="block mb-8 text-sm text-gray-400 dark:text-gray-500">&lt;- Back</a>
     <article class="space-y-8">
         <div class="space-y-3">
@@ -43,6 +43,14 @@ const { Content } = await render(post);
                 }
             </div>
         </div>
+
+        {
+            post.data.description && (
+                <p class="text-base leading-relaxed text-gray-600 dark:text-gray-400">
+                    {post.data.description}
+                </p>
+            )
+        }
 
         <div class="prose dark:prose-invert">
             <Content />
