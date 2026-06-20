@@ -7,7 +7,7 @@ const posts = (await getCollection("blog"))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="Writing - Franklin Ikeh">
+<BaseLayout title="Writing - Franklin Ikeh" description="Things I've written about software engineering and building things.">
     <div class="space-y-10">
         <a href="/" class="block mb-8 text-sm text-gray-400 dark:text-gray-500">&lt;- Home</a>
         <h1 class="text-xl tracking-tight md:text-2xl">Things I've written</h1>

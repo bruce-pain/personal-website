@@ -14,7 +14,7 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<BaseLayout title={`${project.data.name} - Franklin Ikeh`}>
+<BaseLayout title={`${project.data.name} - Franklin Ikeh`} description={project.data.description}>
     <a href="/projects" class="block mb-8 text-sm text-gray-400 dark:text-gray-500">&lt;- Back</a>
     <article class="space-y-8">
         <div class="space-y-3">
