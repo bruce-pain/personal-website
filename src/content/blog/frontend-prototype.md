@@ -1,5 +1,5 @@
 ---
-title: "Frontend prototype"
+title: "AI Form Builder [DEVLOG] - Frontend prototype"
 date: 2026-06-16
 draft: false
 ---

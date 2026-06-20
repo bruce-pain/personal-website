@@ -1,5 +1,5 @@
 ---
-title: "[DEVLOG] AI form builder"
+title: "AI Form Builder [DEVLOG]"
 date: 2026-06-07
 last_updated: 2026-06-17
 draft: false

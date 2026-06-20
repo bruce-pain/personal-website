@@ -1,5 +1,5 @@
 ---
-title: "Basic LLM service"
+title: "AI Form Builder [DEVLOG] - Basic LLM service"
 date: 2026-06-20
 draft: false
 ---

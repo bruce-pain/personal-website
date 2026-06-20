@@ -1,5 +1,5 @@
 ---
-title: "In the beginning there was a form"
+title: "AI Form Builder [DEVLOG] - In the beginning there was a form"
 date: 2026-06-07
 draft: false
 ---
