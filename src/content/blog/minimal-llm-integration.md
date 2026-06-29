@@ -1,6 +1,6 @@
 ---
 title: "AI Form Builder [DEVLOG] - Minimal LLM integration"
-description: "starting with a very basic implementation of the llm integration feature"
+description: "Starting with a very basic implementation of the llm integration feature"
 date: 2026-06-20
 draft: false
 ---
