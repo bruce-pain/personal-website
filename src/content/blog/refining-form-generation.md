@@ -5,6 +5,12 @@ date: 2026-06-29
 draft: false
 ---
 
+<!--toc:start-->
+
+- [Why I ditched Redis](#why-i-ditched-redis)
+- [Some other cool stuff I did](#some-other-cool-stuff-i-did)
+  <!--toc:end-->
+
 In the last entry, I made a very simple LLM integration, all it did was return a form based on the prompt in one shot, basically stateless. That's fine if the LLM manages to generate what you want on the first try, but what if you wanted to make a few changes? That's a problem, because LLMs are stateless, they can only receive your prompt and generate a response from it, if you tried to give a second prompt referring to something it generated or something from your previous prompt, it wouldn't work because the LLM has no way of remembering stuff on its own.
 
 To fix this we have to help the LLM remember stuff by giving it "memory". Memory in this case is basically just adding the stuff you want it to remember to the prompt you're sending, giving it full context.
