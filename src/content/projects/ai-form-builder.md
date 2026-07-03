@@ -2,7 +2,7 @@
 name: "AI Form Builder"
 description: "Create, publish, and manage forms using natural language prompts powered by AI."
 date: 2026-06-07
-live: false
+live: true
 wip: true
 ---
 
@@ -31,5 +31,7 @@ Built as a portfolio project to explore LLM integration beyond basic API wiring.
 
 ## Links
 
+- [Live Site](https://ai-form-builder-fe.vercel.app/)
+- [API Docs](https://ai-form-builder-be.onrender.com/v1/docs)
 - [Frontend Source Code](https://github.com/bruce-pain/ai-form-builder-fe)
 - [Backend Source Code](https://github.com/bruce-pain/AI-form-builder-be)
